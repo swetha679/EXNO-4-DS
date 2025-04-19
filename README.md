@@ -103,6 +103,43 @@ df4.head()
 
 ![Screenshot 2025-04-19 073459](https://github.com/user-attachments/assets/cdc2f553-c72a-43e5-8207-5c3e90541fdb)
 
+```
+import pandas as pd
+import numpy as np
+from scipy.stats import chi2_contingency
+import seaborn as sns
+tips=sns.load_dataset('tips')
+tips.head()
+```
+
+![Screenshot 2025-04-19 073821](https://github.com/user-attachments/assets/67b0db78-18f0-4334-8c16-a77f083d04c3)
+
+```
+import pandas as pd
+from sklearn.feature_selection import SelectKBest,mutual_info_classif,f_classif 
+data={
+    'Feature1':[1,2,3,4,5],
+    'Feature2':['A','B','C','A','B'],
+    'Feature3':[0,1,1,0,1],
+    'Target':[0,1,1,0,1]
+
+}
+df=pd.DataFrame(data)
+x=df[['Feature1','Feature3']] 
+y=df['Target']
+selector = SelectKBest(score_func=mutual_info_classif,k=1)
+x_new=selector.fit_transform(x,y)
+selected_feature_indices=selector.get_support(indices=True)
+selected_feature=x.columns[selected_feature_indices]
+print("Selected Feature:")
+print(selected_feature)
+
+```
+
+![Screenshot 2025-04-19 073914](https://github.com/user-attachments/assets/43100a6c-c445-4ca8-b486-528c702d6498)
+
+
+
 
 
 
@@ -232,4 +269,4 @@ df4.head()
 
 
 # RESULT:
-Thus for the given dat Feature Scaling process is sucsessfully performed.
+Thus for the given dat Feature Scaling and Feature Selection process is sucsessfully performed.
