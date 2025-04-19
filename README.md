@@ -24,6 +24,212 @@ The feature selection techniques used are:
 3.Embedded Method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+REG NO:212224040345
+NAME :B R SWETHA NIVASINI 
+```
+
+```
+import pandas as pd
+from scipy import stats
+import numpy as np
+df=pd.read_csv("/content/bmi.csv")
+df.head()
+
+```
+
+![Screenshot 2025-04-19 072844](https://github.com/user-attachments/assets/9407acef-c4e4-42de-aef3-b0d1b6d50435)
+
+
+```
+df.dropna()
+```
+
+![Screenshot 2025-04-19 072929](https://github.com/user-attachments/assets/fb40a273-bbf5-4418-a908-d0136ddb5758)
+
+```
+max_vals=np.max(np.abs(df[['Height','Weight']]),axis=0)
+max_vals
+```
+
+![Screenshot 2025-04-19 073003](https://github.com/user-attachments/assets/5d463e5c-194b-4b7c-a3db-4a7fe09388fd)
+
+```
+from sklearn.preprocessing import StandardScaler
+sc=StandardScaler()
+df1=df.copy()
+df1[['Height','Weight']]=sc.fit_transform(df1[['Height','Weight']])
+df1.head(10)
+```
+
+![Screenshot 2025-04-19 073038](https://github.com/user-attachments/assets/47bc674e-a267-4931-9d98-3e9babfd6f0a)
+
+```
+from sklearn.preprocessing import MinMaxScaler
+scaler=MinMaxScaler()
+df[['Height','Weight']] = scaler.fit_transform(df[['Height','Weight']])
+df.head(10)
+```
+
+![Screenshot 2025-04-19 073151](https://github.com/user-attachments/assets/ef596a12-2b34-45f3-a678-997e7b25512c)
+
+```
+from sklearn.preprocessing import Normalizer
+scaler=Normalizer()
+df2=df.copy()
+df2[['Height','Weight']]=scaler.fit_transform(df2[['Height','Weight']])
+df2
+```
+
+![Screenshot 2025-04-19 073259](https://github.com/user-attachments/assets/8ece4115-92d7-44f5-a879-f1cbf0666147)
+
+```
+df3=pd.read_csv("/content/bmi.csv")
+from sklearn.preprocessing import MaxAbsScaler
+scaler=MaxAbsScaler()
+df3[['Height','Weight']]=scaler.fit_transform(df3[['Height','Weight']])
+df3
+```
+
+![Screenshot 2025-04-19 073400](https://github.com/user-attachments/assets/a5b43c12-3ffe-4e52-9847-23857b636398)
+
+```
+df4=pd.read_csv("/content/bmi.csv")
+from sklearn.preprocessing import RobustScaler
+scaler=RobustScaler()
+df4[['Height','Weight']]=scaler.fit_transform(df4[['Height','Weight']])
+df4.head()
+```
+
+![Screenshot 2025-04-19 073459](https://github.com/user-attachments/assets/cdc2f553-c72a-43e5-8207-5c3e90541fdb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+Thus for the given dat Feature Scaling process is sucsessfully performed.
